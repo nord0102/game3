@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" , href="style.css">
+</head>
+<body  class="back" style="border: none; margin:0%"> <img class="fon" id='myImage' src="fon.jpg" style="width: 100% ; height: 100% ;position: absolute; border: none">
+   
+    <button class="startbutt btnstr">
+        Start
+        </button> 
+
+        <button class="startbutt btnstrеl">
+            <a href="index1.html"> Назад</a>
+            </button> 
+        
+<script>
+    
+var start = document.querySelector('.startbutt')
+var begin = document.querySelector('.begin')
+start.onmousedown = function () {
+start.style.visibility = 'hidden';
+begin.style.visibility = 'visible';
+}</script>
+<div class="hidden begin">
+    <img class="avatar" id='myImage1' src="draug.png" style="width: 200px; height: 150px; position: absolute; top:350px; left:350px;">
+    <img class="enemy" id='myImage2' src="draug1.png" style="width: 200px; height: 150px; position: absolute; top:350px; left:750px;">
+
+    <script>
+     var star= document.querySelector('.avatar')
+     var vol = document.querySelector('.enemy')
+     var nim = 350
+     var len = 350
+     var min = 350
+     var nel = 750
+     var damage= 10
+     var hero = {name: 'MotherShipZ', power: 'мутаген', equip: 'два меча', enemy: ['дикая охота','monsters'], hp: 100}
+     var dw = {name: 'Geperion', power: 'мутаген', equip: 'два меча', enemy: ['дикая охота','monsters'], hp: 100}
+     var start = document.querySelector('.startbutt')
+var begin = document.querySelector('.begin')
+
+    
+     document.onkeydown = function(event) {
+     
+        if (event.code == 'KeyD') {len=len+50
+        star.style.left = len +'px'
+        star.style.transition = 0,4 + 's'
+                                  }
+        if (event.code == 'KeyS') {nim=nim+50
+        star.style.top = nim +'px'
+        star.style.transition = 0,4+ 's'
+                                   }
+        if (event.code == 'KeyA') {len=len-50
+        star.style.left = len +'px'
+        star.style.transition = 0,4+ 's'
+                                   }
+        if (event.code == 'KeyW') {nim=nim-50
+        star.style.top = nim +'px'
+        star.style.transition = 0,4+ 's' 
+                                   }
+        if (event.code == 'Space') {    
+            if (hero.hp <= 0)  
+            {console.log(hero.name+' уже мерт');
+            alert( hero.name+' уже уничтожен');} 
+            else if (dw.hp > damage){
+            dw.hp = dw.hp-damage
+            console.log(hero.name+' нанес '+ dw.name+' '+damage+'. Осталось здоровья у '+dw.name+' '+dw.hp+' очков')
+            }  else  {  dw.hp = 0
+                document.getElementById("myImage1").src="rip.gif";
+
+     console.log(hero.name+' одержал победу над '+dw.name)
+     alert( hero.name+' одержал победу над '+dw.name);  }}
+                            
+                                   //первый игрок
+        if (event.code == 'ArrowRight') { nel=nel+50
+        vol.style.left = nel +'px'
+        vol.style.transition = 0,4 + 's'
+                                  }
+        if (event.code == 'ArrowDown') {min=min+50
+        vol.style.top = min +'px'
+        vol.style.transition = 0,4+ 's'
+                                   }
+        if (event.code == 'ArrowLeft') {nel=nel-50
+        vol.style.left = nel +'px'
+        vol.style.transition = 0,4+ 's'
+                                   }
+        if (event.code == 'ArrowUp') {min=min-50
+        vol.style.top = min +'px'
+        vol.style.transition = 0,4+ 's' 
+                                   }
+        if (event.code == 'Numpad0'){ 
+           if (dw.hp <= 0)  {alert( hero.name+' уже уничтожен');} else
+            if (hero.hp > damage){
+            hero.hp = hero.hp-damage
+            console.log(dw.name+' нанес '+hero.name+'у '+damage+'. Осталось здоровья у '+hero.name+'а '+hero.hp+' очков')
+            } else { hero.hp = 0
+                document.getElementById("myImage2").src="rip.gif";
+     console.log(hero.name+' погиб сражаясь '+dw.name) 
+     alert( hero.name+' погиб сражаясь '+dw.name);                          //второй игрок
+    } }}
+    </script>    </div>
+</body>
+</html>
